@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Produto</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>DP6 Martech Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="produtos.html">Produtos</a>
+        </nav>
+        <div id="cart-counter">Carrinho: <span>0</span> itens</div>
+    </header>
+    <main>
+        <!-- Estes dados seriam dinâmicos em um e-commerce real -->
+        <h2 id="product-name">Camiseta Data Layer</h2>
+        <p>Categoria: <span id="product-category">Vestuário</span></p>
+        <p>Preço: R$ <span id="product-price">89.90</span></p>
+        
+        <button id="add-to-cart-btn" class="btn-buy" onclick="addToCart('SKU_001', 'Camiseta Data Layer', 89.90)">
+            Adicionar ao Carrinho
+        </button>
+    </main>
+    <script src="js/app.js"></script>
+</body>
+</html>
