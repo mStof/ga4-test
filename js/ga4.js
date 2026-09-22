@@ -51,3 +51,14 @@ const eventViewItemList = (prodList) => {
 
   gtag("event", "view_item_list", eCommerce)
 }
+
+const eventClickLogo = () => {
+  gtag("event", "click_logo", {
+    page_location: window.location.href,
+    dispositivo: navigator.userAgentData.platform,
+    browser: navigator.vendor,
+    disp_language: navigator.language
+
+  })
+}
+document.querySelector(".logo").addEventListener("click", eventClickLogo);
