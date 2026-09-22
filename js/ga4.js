@@ -59,7 +59,7 @@ const eventClickLogo = (e) => {
   gtag("event", "click_logo", {
     page_location: window.location.href,
     dispositivo: navigator.userAgentData.platform,
-    browser: navigator.userAgentData.brands[0].brand,
+    browser: navigator.userAgentData.brands[0].brand ?? navigator.appCodeName,
     disp_language: navigator.language,
   });
 
