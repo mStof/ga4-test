@@ -25,8 +25,8 @@ function addToCart(productId) {
     
     console.log(product);
     const TValue = cart.reduce((total, {price}) => total+price, 0);
-
-    gtag("event", "add_to_cart", {
+    
+    const eCommerce = {
         currency: "BRL",
         value: TValue, 
         items: cart.map((e, index) => {
@@ -39,8 +39,10 @@ function addToCart(productId) {
                 quantity: 1
             };
         })
-    })
-    
+    };
+
+    gtag("event", "add_to_cart", eCommerce);
+
     alert(`${product.name} foi adicionado ao carrinho!`);
 }
 
