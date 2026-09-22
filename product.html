@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBF6G74WPF"></script>
+    
     <meta charset="UTF-8">
     <title>NextStore | Detalhe do Produto</title>
     <link rel="stylesheet" href="css/index.css">
@@ -15,7 +17,7 @@
             <a href="checkout.html">Carrinho <span id="cart-count" class="cart-badge">0</span></a>
         </div>
     </nav>
-
+    
     <main class="container">
         <div class="product-detail-layout">
             <div class="product-gallery">
@@ -33,15 +35,15 @@
             </div>
         </div>
     </main>
-
+    
     <footer><p>&copy; 2024 NextStore E-commerce.</p></footer>
-
+    
     <script src="js/index.js"></script>
     <script>
         const params = new URLSearchParams(window.location.search);
         const sku = params.get('id') || 'SKU03';
         const productData = dbProducts.find(p => p.id === sku) || dbProducts[2];
-
+        
         // Atualizar HTML visualmente
         document.getElementById('p-img').src = productData.image;
         document.getElementById('p-title').innerText = productData.name;
@@ -49,5 +51,6 @@
         document.getElementById('p-category').innerText = productData.category;
         document.getElementById('btn-add').setAttribute('onclick', `addToCart('${productData.id}')`);
     </script>
+    <script src ="js/ga4.js"></script>
 </body>
 </html>
