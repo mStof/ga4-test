@@ -52,13 +52,17 @@ const eventViewItemList = (prodList) => {
   gtag("event", "view_item_list", eCommerce)
 }
 
-const eventClickLogo = () => {
+
+const logo = document.querySelector(".logo");
+const eventClickLogo = (e) => {
+  e.preventDefault();
   gtag("event", "click_logo", {
     page_location: window.location.href,
     dispositivo: navigator.userAgentData.platform,
     browser: navigator.vendor,
-    disp_language: navigator.language
+    disp_language: navigator.language,
+  });
 
-  })
+  location.href = logo.href;
 }
-document.querySelector(".logo").addEventListener("click", eventClickLogo);
+logo.addEventListener("click", eventClickLogo);
