@@ -23,25 +23,7 @@ function addToCart(productId) {
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartBadge();
     
-    console.log(product);
-    const TValue = cart.reduce((total, {price}) => total+price, 0);
-    
-    const eCommerce = {
-        currency: "BRL",
-        value: TValue, 
-        items: cart.map((e, index) => {
-            return {
-                item_id: e.id,
-                item_name: e.name,
-                index: index,
-                item_category: e.category,
-                price: e.price,
-                quantity: 1
-            };
-        })
-    };
-
-    gtag("event", "add_to_cart", eCommerce);
+    eventAddToCart(cart);
 
     alert(`${product.name} foi adicionado ao carrinho!`);
 }
