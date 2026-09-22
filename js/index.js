@@ -19,8 +19,27 @@ function addToCart(productId) {
     const product = dbProducts.find(p => p.id === productId);
     const cart = getCart();
     cart.push(product);
+
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartBadge();
+    
+    console.log(product);
+    const TValue = cart.reduce((total, {price}) => total+price, 0);
+
+    gtag("event", "add_to_cart", {
+        currency: "BRL",
+        value: TValue, 
+        items: cart.map((e, index) => {
+            return {
+                item_id: e.id,
+                item_name: e.name,
+                index: index,
+                item_category: e.category,
+                price: e.price,
+                quantity: 1
+            };
+        })
+    })
     
     alert(`${product.name} foi adicionado ao carrinho!`);
 }
